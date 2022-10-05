@@ -44,15 +44,21 @@ int main(){
             case 1:{
                 cout << "Chute: " <<endl;
                 cin >> chute;
+                system("cls");
+                cout << "LETRAS ACERTADAS:" << endl;
                 int count = 0;
-                for (int i = 0; i < chute.length(); i++)
+                for (int i = 0; i < palavra.length(); i++)
                 {
                     if(comparar_palavras(chute[i], palavra[i])){
                         pontos += 200;
-                        cout << "A " << i+1 << "(a) letra esta na posicao certa" << endl;
+                        cout << chute[i];
                         count++;
                     }
+                    else {
+                        cout << "_";
+                    }
                 }
+                cout << endl;
                 if(count == palavra.length()){
                     pontos += 1000;
                     cout << "PARABENS, VOCE ACERTOU!" <<endl;
