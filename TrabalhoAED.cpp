@@ -39,6 +39,9 @@ int main(){
     mostrarMenuEscolha();
     cin >> choice;
     do{
+        if (pontos < 0) {
+            pontos = 0;
+        }
         cout << "VOCE TEM " << pontos << " PONTOS" << endl;
         switch(choice){
             case 1:{
