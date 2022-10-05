@@ -23,7 +23,7 @@ int main(){
     cout << "Digite a palavra secreta: ";
     cin >> palavra;
     aux = palavra;
-    system("clear");
+    system("cls");
     
     no *pilha;
     pilha = inicializaPilha(pilha);
@@ -39,6 +39,7 @@ int main(){
     mostrarMenuEscolha();
     cin >> choice;
     do{
+        cout << "VOCE TEM " << pontos << " PONTOS" << endl;
         switch(choice){
             case 1:{
                 cout << "Chute: " <<endl;
@@ -47,16 +48,20 @@ int main(){
                 for (int i = 0; i < chute.length(); i++)
                 {
                     if(comparar_palavras(chute[i], palavra[i])){
+                        pontos += 200;
                         cout << "A " << i+1 << "(a) letra esta na posicao certa" << endl;
                         count++;
                     }
                 }
                 if(count == palavra.length()){
+                    pontos += 1000;
                     cout << "PARABENS, VOCE ACERTOU!" <<endl;
+                    cout << "VOCE TEM " << pontos << " PONTOS" << endl;
                     exit(0);
                     break;
                 }
                 else {
+                    pontos -= 500;
                     cout << "PALAVRA INCORRETA!"<<endl;
                 }
             }
@@ -69,6 +74,7 @@ int main(){
             break;
 
             case 3: {
+                pontos -= 100;
                 cout <<endl;
                 pilha = POP(pilha, &letra);
                 cout << "LETRA: [" << char(letra) << "]" << endl;
@@ -89,9 +95,9 @@ int main(){
             }
 
         }
+        cout << "VOCE TEM " << pontos << " PONTOS" << endl;
         mostrarMenuEscolha();
-        cin >> choice;
-        
+        cin >> choice;   
         
     }while(choice != 4);
 }

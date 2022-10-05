@@ -37,3 +37,5 @@ void mostrarMenuEscolha(){
     cout << "-----------------------|L E T R O C A|-----------------------"<<endl;
     cout <<endl << "[1] - Chutar palavra" <<endl << "[2] - Reembaralhar palavra" <<endl << "[3] - Revelar letra" <<endl << "[4] - Sair" <<endl <<endl;
 }
+
+
