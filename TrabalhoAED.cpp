@@ -19,6 +19,7 @@ int main(){
     char letraAnt[MAX];
     int letra;
     int pontos = 0;
+    int revelar_count = 0;
 
     cout << "Digite a palavra secreta: ";
     cin >> palavra;
@@ -39,9 +40,6 @@ int main(){
     mostrarMenuEscolha();
     cin >> choice;
     do{
-        if (pontos < 0) {
-            pontos = 0;
-        }
         cout << "VOCE TEM " << pontos << " PONTOS" << endl;
         switch(choice){
             case 1:{
@@ -83,15 +81,17 @@ int main(){
             break;
 
             case 3: {
-                pontos -= 100;
-                cout <<endl;
-                pilha = POP(pilha, &letra);
-                cout << "LETRA: [" << char(letra) << "]" << endl;
-                letraAnt[conta4] = letra;
-                aux2.push_back(letraAnt[conta4]);
-                conta4++;
-                revelarPalavra(palavra, aux2);
-                cout <<endl;
+                if (revelar_count <= palavra.length()-1) {
+                    pontos -= 100;
+                    cout <<endl;
+                    pilha = POP(pilha, &letra);
+                    cout << "LETRA: [" << char(letra) << "]" << endl;
+                    letraAnt[conta4] = letra;
+                    aux2.push_back(letraAnt[conta4]);
+                    conta4++;
+                    revelarPalavra(palavra, aux2);
+                    cout <<endl;
+                }
             }
             break;
             
@@ -103,6 +103,9 @@ int main(){
                 cout << "ERRO - selecao invalida!" << endl;
             }
 
+        }
+        if (pontos < 0) {
+            pontos = 0;
         }
         cout << "VOCE TEM " << pontos << " PONTOS" << endl;
         mostrarMenuEscolha();
